@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class Menu:
-    def __init__(self, window):
-        self.window = window
+class Menu: # define a classe Menu
+    def __init__(self, window): # metodo construtor colocando a janela como parâmetro
+        self.window = window # guarda a referência da janela na variável self.window para ser usada em outros métodos
 
-    def run(self, window):
+    def run(self, menu):
         pass
