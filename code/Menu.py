@@ -1,13 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
-
 import pygame
 from pygame import Rect
 from pygame.font import Font
 from pygame.surface import Surface
-from code.Const import (MENU_BG, MENU_SOUND, FONT_SIZE_TITLE, COLOR_ORANGE, MENU_TITLE_POS,
-                        FONT_SIZE_INSTRUCTION, FONT_SIZE_SUBTITLE, MENU_INSTRUCTION_POS, MENU_SUBTITLE_POS)
+from code.Const import (MENU_BG, MENU_SOUND, FONT_SIZE_TITLE, COLOR_ORANGE, MENU_TITLE_POS, FONT_SIZE_SUBTITLE, MENU_SUBTITLE_POS,
+                        WIN_WIDTH, COLOR_RED, MENU_OPTION)
 
 
 class Menu: # define a classe Menu
@@ -15,7 +14,6 @@ class Menu: # define a classe Menu
         self.window = window # guarda a referência da janela na variável self.window para ser usada em outros métodos
         self.surf = pygame.image.load(MENU_BG)
         self.rect = self.surf.get_rect()
-
         self.font_path = './asset/PressStart2P-Regular.ttf'
         # carrega fonte pixelart
         self.pixel_font = self.load_pixel_font()
@@ -28,15 +26,21 @@ class Menu: # define a classe Menu
             return pygame.font.SysFont('Arial', 24)
 
     def run(self, ):
+        menu_option = 0
         pygame.mixer_music.load(MENU_SOUND)
         pygame.mixer_music.play(-1)
 
         while True:
+            # draw images
             self.window.blit(source=self.surf, dest=self.rect)
+            self.menu_text(FONT_SIZE_TITLE, "SKYFIRE", COLOR_RED, MENU_TITLE_POS)
+            self.menu_text(FONT_SIZE_SUBTITLE, "MONTAIN STORM", COLOR_RED, MENU_SUBTITLE_POS)
 
-            self.menu_text(FONT_SIZE_TITLE, "SKYFIRE", COLOR_ORANGE, MENU_TITLE_POS)
-            self.menu_text(FONT_SIZE_SUBTITLE, "MONTAIN STORM", COLOR_ORANGE, MENU_SUBTITLE_POS)
-            self.menu_text(FONT_SIZE_INSTRUCTION, "PRESS ANY KEY", COLOR_ORANGE, MENU_INSTRUCTION_POS)
+            for i in range(len(MENU_OPTION)):
+                if i == menu_option:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_ORANGE, ((WIN_WIDTH/2), 200 + 25 * i))
+                else:
+                    self.menu_text(20, MENU_OPTION[i], COLOR_RED, ((WIN_WIDTH / 2), 200 +25 * i))
 
             pygame.display.flip()
 
@@ -45,8 +49,22 @@ class Menu: # define a classe Menu
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit() # end pygame
+
                 if event.type == pygame.KEYDOWN:
-                    return # end pygame any key
+                    if event.key == pygame.K_DOWN: # Move seleção para baixo
+                        if menu_option < len(MENU_OPTION) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+
+                    if event.key == pygame.K_UP: # Move seleção para cima
+                        if menu_option > 0:
+                            menu_option -= 1
+                        else:
+                            menu_option = len(MENU_OPTION) - 1
+                    if event.key == pygame.K_RETURN: # selecionar
+                        return MENU_OPTION[menu_option]
+
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         #renderiza o texto com pixelart
