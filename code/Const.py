@@ -20,11 +20,20 @@ MENU_OPTION = ("NEW GAME 1P",
                "SCORE",
                "EXIT")
 
+# VELOCIDADE
+ENTITY_SPEED = {
+    'Level1Bg0' : 0,
+    'Level1Bg1' : 1,
+    'Level1Bg2' : 2,
+    'Level1Bg3' : 3,
+    'Level1Bg4' : 6
+}
+
 # FONTES
 FONT_PATH = './asset/PressStart2P-Regular.ttf'
 FONT_SIZE_TITLE = 46
 FONT_SIZE_SUBTITLE = 22
-FONT_SIZE_INSTRUCTION = 10
+FONT_SIZE_INSTRUCTION = 15
 FONT_SIZE_DEFAULT = 14
 
 # MENU
