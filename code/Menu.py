@@ -13,7 +13,7 @@ from code.Const import (MENU_BG, MENU_SOUND, FONT_SIZE_TITLE, COLOR_ORANGE, MENU
 class Menu: # define a classe Menu
     def __init__(self, window): # metodo construtor colocando a janela como parâmetro
         self.window = window # guarda a referência da janela na variável self.window para ser usada em outros métodos
-        self.surf = pygame.image.load(MENU_BG)
+        self.surf = pygame.image.load(MENU_BG).convert_alpha()
         self.rect = self.surf.get_rect()
         self.font_path = './asset/PressStart2P-Regular.ttf' # carrega fonte pixelart
         self.pixel_font = self.load_pixel_font()
