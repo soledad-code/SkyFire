@@ -34,7 +34,7 @@ class Menu: # define a classe Menu
             # desenha imagens
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(FONT_SIZE_TITLE, "SKYFIRE", COLOR_RED, MENU_TITLE_POS)
-            self.menu_text(FONT_SIZE_SUBTITLE, "MONTAIN STORM", COLOR_RED, MENU_SUBTITLE_POS)
+            self.menu_text(FONT_SIZE_SUBTITLE, "MOUNTAIN WAR", COLOR_RED, MENU_SUBTITLE_POS)
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
