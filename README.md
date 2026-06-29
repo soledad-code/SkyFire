@@ -3,6 +3,7 @@
 ## INSTRUÇÕES DE EXECUÇÃO
 
 ### REQUISITOS
+- Versão do Python utilizada: Python 3.12.3
 
 ### PASSOS PARA RODAR
 
