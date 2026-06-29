@@ -7,12 +7,13 @@ WIN_HEIGHT = 324
 
 
 # C
-COLOR_ORANGE = (255, 128, 0)
-COLOR_WHITE = (255, 255, 255)
-COLOR_RED = (255, 0, 0)
-COLOR_BLUE = (0, 91, 172)
-COLOR_YELLOW = (255, 255, 0)
-
+C_ORANGE = (255, 128, 0)
+C_WHITE = (255, 255, 255)
+C_RED = (255, 0, 0)
+C_BLUE = (0, 91, 172)
+C_YELLOW = (255, 255, 0)
+C_GREEN = (0, 128, 0)
+C_PURPLE = (128, 0, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
@@ -33,6 +34,39 @@ ENTITY_SPEED = {
     'Enemy2Shot': 5
 }
 
+ENTITY_DAMAGE = {
+    'Level1Bg0' : 0,
+    'Level1Bg1' : 0,
+    'Level1Bg2' : 0,
+    'Level1Bg3' : 0,
+    'Level1Bg4' : 0,
+    'Player1' : 1,
+    'Player1Shot' : 25,
+    'Player2' : 1,
+    'Player2Shot' : 25,
+    'Enemy1': 1,
+    'Enemy1Shot': 20,
+    'Enemy2': 1,
+    'Enemy2Shot': 20
+
+}
+
+ENTITY_SCORE = {
+    'Level1Bg0' : 0,
+    'Level1Bg1' : 0,
+    'Level1Bg2' : 0,
+    'Level1Bg3' : 0,
+    'Level1Bg4' : 0,
+    'Player1' : 0,
+    'Player1Shot' : 0,
+    'Player2' : 0,
+    'Player2Shot' : 0,
+    'Enemy1': 100,
+    'Enemy1Shot': 0,
+    'Enemy2': 125,
+    'Enemy2Shot': 0
+}
+
 ENTITY_HEALTH = {
     'Level1Bg0' : 999,
     'Level1Bg1' : 999,
@@ -50,6 +84,12 @@ ENTITY_HEALTH = {
 
 }
 
+ENTITY_SHOT_DELAY = {
+    'Player1': 50,
+    'Player2': 50,
+    'Enemy1': 200,
+    'Enemy2': 100
+}
 # F
 FONT_PATH = './asset/PressStart2P-Regular.ttf'
 FONT_SIZE_TITLE = 46
@@ -57,14 +97,6 @@ FONT_SIZE_SUBTITLE = 22
 FONT_SIZE_INSTRUCTION = 15
 FONT_SIZE_DEFAULT = 14
 FONT_SIZE_INSTRUCTION_SMALL = 10
-
-# E
-ENTITY_SHOT_DELAY = {
-    'Player1': 15,
-    'Player2': 15,
-    'Enemy1': 200,
-    'Enemy2': 100
-}
 
 # M
 MENU_OPTION = ("NEW GAME 1P",

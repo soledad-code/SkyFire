@@ -5,9 +5,9 @@ import pygame
 from pygame import Rect
 from pygame.font import Font
 from pygame.surface import Surface
-from code.Const import (MENU_BG, MENU_SOUND, FONT_SIZE_TITLE, COLOR_ORANGE, MENU_TITLE_POS, FONT_SIZE_SUBTITLE,
+from code.Const import (MENU_BG, MENU_SOUND, FONT_SIZE_TITLE, C_ORANGE, MENU_TITLE_POS, FONT_SIZE_SUBTITLE,
                         MENU_SUBTITLE_POS,
-                        WIN_WIDTH, COLOR_RED, MENU_OPTION, FONT_SIZE_INSTRUCTION, MENU_INSTRUCTION_POS,
+                        WIN_WIDTH, C_RED, MENU_OPTION, FONT_SIZE_INSTRUCTION, MENU_INSTRUCTION_POS,
                         FONT_SIZE_INSTRUCTION_SMALL, MENU_OPTIONS_START_Y)
 
 
@@ -34,20 +34,20 @@ class Menu: # define a classe Menu
         while True:
             # DESENHA IMAGENS
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(FONT_SIZE_TITLE, "SKYFIRE", COLOR_RED, MENU_TITLE_POS)
-            self.menu_text(FONT_SIZE_SUBTITLE, "MOUNTAIN WAR", COLOR_RED, MENU_SUBTITLE_POS)
+            self.menu_text(FONT_SIZE_TITLE, "SKYFIRE", C_RED, MENU_TITLE_POS)
+            self.menu_text(FONT_SIZE_SUBTITLE, "MOUNTAIN WAR", C_RED, MENU_SUBTITLE_POS)
 
             # INSTRUÇÕES DO JOGO
             for i in range(len(MENU_OPTION)):
                 y_pos = MENU_OPTIONS_START_Y + (25 * i)  # 25 é o espaçamento
                 if i == menu_option:
-                    self.menu_text(FONT_SIZE_INSTRUCTION, MENU_OPTION[i], COLOR_ORANGE, (WIN_WIDTH / 2, y_pos))
+                    self.menu_text(FONT_SIZE_INSTRUCTION, MENU_OPTION[i], C_ORANGE, (WIN_WIDTH / 2, y_pos))
                 else:
-                    self.menu_text(FONT_SIZE_INSTRUCTION, MENU_OPTION[i], COLOR_RED, (WIN_WIDTH / 2, y_pos))
+                    self.menu_text(FONT_SIZE_INSTRUCTION, MENU_OPTION[i], C_RED, (WIN_WIDTH / 2, y_pos))
 
             # Instruções no final da tela (fonte menor)
-            self.menu_text(10, "CTRL - ATIRAR", COLOR_ORANGE, MENU_INSTRUCTION_POS)
-            self.menu_text(10, "SETAS - MOVER", COLOR_ORANGE, (MENU_INSTRUCTION_POS[0], MENU_INSTRUCTION_POS[1] + 15))
+            self.menu_text(10, "RIGHT CTRL - SHOOT", C_ORANGE, MENU_INSTRUCTION_POS)
+            self.menu_text(10, "SETAS - MOVE", C_ORANGE, (MENU_INSTRUCTION_POS[0], MENU_INSTRUCTION_POS[1] + 15))
 
             pygame.display.flip()
 
